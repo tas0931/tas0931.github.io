@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tasbir Ahmed | ML for Healthcare</title>
+<meta name="description" content="Tasbir Ahmed, Computer Science graduate from BRAC University working on machine learning for healthcare: medical imaging, biosignals and multimodal learning.">
+<meta property="og:title" content="Tasbir Ahmed | ML for Healthcare">
+<meta property="og:description" content="Medical imaging, biosignals and multimodal learning. First author, IEEE BIBM 2026 workshop paper.">
+<meta property="og:image" content="assets/profile.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23202022'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='28' text-anchor='middle' fill='%23f5c86b'%3ETA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121213; --card:#1d1d1f; --card2:#26262a; --line:#363639; --text:#e9e9ea; --muted:#a3a3a8;
+  --accent:#f5c86b; --accent2:#f0a35e; --grad:linear-gradient(135deg,var(--accent),var(--accent2));
+  --chip:#2b2b30; --shadow:0 16px 40px rgba(0,0,0,.35); --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 15px/1.7 Poppins,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:60px 16px 80px;display:grid;grid-template-columns:290px 1fr;gap:24px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* ---------- sidebar ---------- */
+aside{position:sticky;top:60px;padding:30px 24px}
+.avatar{width:150px;height:150px;border-radius:30px;margin:0 auto;background:var(--card2);overflow:hidden;border:1px solid var(--line)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.who{text-align:center;margin-top:18px}
+.who h1{font-size:24px;font-weight:600;letter-spacing:.2px}
+.role{display:inline-block;margin-top:8px;background:var(--chip);color:var(--text);font-size:12px;padding:4px 14px;border-radius:8px}
+.sep{height:1px;background:var(--line);margin:22px 0}
+.contacts{list-style:none;display:grid;gap:16px}
+.contacts li{display:flex;gap:14px;align-items:center;min-width:0}
+.ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--card2);border:1px solid var(--line);display:grid;place-items:center;color:var(--accent)}
+.ic svg{width:18px;height:18px}
+.contacts small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.6px}
+.contacts span,.contacts a{font-size:13.5px;color:var(--text);overflow-wrap:anywhere}
+.socials{display:flex;gap:10px;justify-content:center}
+.socials a{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--card2);border:1px solid var(--line);color:var(--muted)}
+.socials a:hover{color:var(--accent);text-decoration:none}
+.socials svg{width:18px;height:18px}
+.toggle{display:none}
+
+/* ---------- main ---------- */
+main{position:relative;min-width:0;padding:92px 34px 38px}
+nav{position:absolute;top:0;right:0;background:#262628;border:1px solid var(--line);border-top:0;border-right:0;border-radius:0 var(--radius) 0 var(--radius);padding:0 18px}
+nav ul{list-style:none;display:flex;gap:4px}
+nav button{font:inherit;font-size:14px;background:none;border:0;color:var(--muted);padding:18px 12px;cursor:pointer}
+nav button:hover{color:var(--text)}
+nav button.on{color:var(--accent)}
+.page{display:none}
+.page.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2{font-size:28px;font-weight:600;position:relative;padding-bottom:12px;margin-bottom:24px}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:40px;height:4px;border-radius:4px;background:var(--grad)}
+h3{font-size:19px;font-weight:600;margin:34px 0 18px}
+p{color:#cfcfd2}
+p+p{margin-top:12px}
+.lead p{font-size:15px}
+.hl{color:var(--text);font-weight:500}
+
+/* interest cards */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.tile{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;gap:16px}
+.tile .ic{background:var(--card);flex:none}
+.tile h4{font-size:15.5px;font-weight:600;margin-bottom:4px}
+.tile p{font-size:13.5px;line-height:1.6;color:var(--muted)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stat{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:16px 14px}
+.stat b{display:block;font-size:20px;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.3}
+.stat span{font-size:12.5px;color:var(--muted);line-height:1.4;display:block;margin-top:4px}
+
+/* news */
+.news{list-style:none;display:grid;gap:10px}
+.news li{display:flex;gap:16px;align-items:baseline}
+.news time{flex:none;width:78px;font-size:12.5px;color:var(--accent);font-weight:500}
+.news span{font-size:14px;color:#cfcfd2}
+
+/* timeline */
+.tl-head{display:flex;align-items:center;gap:14px;margin:34px 0 18px}
+.tl-head:first-of-type{margin-top:0}
+.tl-head h3{margin:0}
+.timeline{list-style:none;margin-left:20px;border-left:1px solid var(--line);padding-left:28px}
+.timeline>li{position:relative;padding-bottom:30px}
+.timeline>li:last-child{padding-bottom:4px}
+.timeline>li::before{content:"";position:absolute;left:-34px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #3a3220}
+.timeline h4{font-size:16px;font-weight:600;line-height:1.45}
+.when{display:block;color:var(--accent);font-size:13px;margin:4px 0 8px}
+.meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+.meta b{color:var(--text);font-weight:500}
+.timeline p{font-size:14px}
+.badge{display:inline-block;font-size:11.5px;font-weight:500;color:#1a1a1a;background:var(--grad);border-radius:6px;padding:1px 9px;margin-left:6px;vertical-align:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{font-size:12px;background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:3px 10px;color:#d6d6d9}
+.chip.num{color:var(--accent);border-color:#4a3f27}
+.links{margin-top:10px;font-size:13.5px;display:flex;gap:16px;flex-wrap:wrap}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.filters button{font:inherit;font-size:13.5px;background:var(--card2);color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:6px 14px;cursor:pointer}
+.filters button.on{color:#1a1a1a;background:var(--grad);border-color:transparent}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.proj{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.proj:hover{transform:translateY(-3px);border-color:#4a4a50}
+.proj[hidden]{display:none}
+.proj .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.proj h4{font-size:15.5px;font-weight:600;line-height:1.45}
+.proj .cat{flex:none;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 8px;white-space:nowrap}
+.proj .when{margin:2px 0 10px}
+.proj p{font-size:13.5px;line-height:1.6;flex:1}
+.proj .links{margin-top:14px}
+
+/* skills */
+.skills{display:grid;gap:14px}
+.skills>div{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:start}
+.skills b{font-size:13.5px;font-weight:500;color:var(--muted);padding-top:3px}
+
+.cta{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--card2);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:12px 18px;font-size:14px}
+.btn:hover{border-color:var(--accent);text-decoration:none}
+.btn.primary{background:var(--grad);color:#1a1a1a;border-color:transparent;font-weight:500}
+.btn svg{width:18px;height:18px}
+footer{grid-column:1/-1;text-align:center;color:#6f6f75;font-size:12.5px;margin-top:8px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .wrap{grid-template-columns:1fr;padding-top:16px;padding-bottom:96px}
+  aside{position:static;padding:20px}
+  .side-top{display:flex;gap:18px;align-items:center}
+  .avatar{width:88px;height:88px;border-radius:20px;margin:0}
+  .who{text-align:left;margin-top:0}
+  .who{flex:1;min-width:0}
+  .who h1{font-size:20px;line-height:1.3}
+  .toggle{display:block;width:100%;margin-top:16px;font:inherit;font-size:13px;color:var(--accent);background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:9px 12px;cursor:pointer}
+  .more{display:none}
+  aside.open .more{display:block}
+  nav{position:fixed;left:0;right:0;bottom:0;top:auto;border-radius:16px 16px 0 0;border:1px solid var(--line);border-bottom:0;padding:0 6px env(safe-area-inset-bottom);background:rgba(38,38,40,.94);backdrop-filter:blur(10px);z-index:10}
+  nav ul{justify-content:space-between;gap:0}
+  nav li{flex:1;text-align:center}
+  nav button{font-size:11.5px;padding:15px 2px;white-space:nowrap;width:100%}
+  main{padding:26px 20px 30px}
+}
+@media (max-width:700px){
+  .grid2,.pgrid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  h2{font-size:24px}
+  .skills>div{grid-template-columns:1fr;gap:6px}
+  .timeline{margin-left:8px;padding-left:22px}
+  .timeline>li::before{left:-28px}
+  .news li{flex-direction:column;gap:0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<aside class="card" id="side">
+  <div class="side-top">
+    <div class="avatar"><img src="assets/profile.jpg" alt="Tasbir Ahmed" width="384" height="384"></div>
+    <div class="who">
+      <h1>Tasbir Ahmed</h1>
+      <span class="role">ML for Healthcare Researcher</span>
+    </div>
+  </div>
+  <button class="toggle" id="toggle" aria-expanded="false">Show contacts</button>
+  <div class="more">
+    <div class="sep"></div>
+    <ul class="contacts">
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>Email</small><a href="mailto:tasbirtahim@gmail.com">tasbirtahim@gmail.com</a></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><div><small>Education</small><span>B.Sc. CS, BRAC University</span></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><small>Location</small><span>Dhaka, Bangladesh</span></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Seeking</small><span>PhD positions, Fall 2027</span></div></li>
+    </ul>
+    <div class="sep"></div>
+    <div class="socials">
+      <a href="https://github.com/tas0931" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+      <a href="https://www.linkedin.com/in/tasbir-ahmed/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="mailto:tasbirtahim@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+    </div>
+  </div>
+</aside>
+
+<main class="card">
+  <nav aria-label="Sections">
+    <ul>
+      <li><button data-page="about" class="on">About</button></li>
+      <li><button data-page="research">Research</button></li>
+      <li><button data-page="projects">Projects</button></li>
+      <li><button data-page="experience">Experience</button></li>
+      <li><button data-page="education">Education</button></li>
+      <li><button data-page="contact">Contact</button></li>
+    </ul>
+  </nav>
+
+  <!-- ABOUT -->
+  <section class="page on" id="p-about">
+    <h2>About me</h2>
+    <div class="lead">
+      <p>I'm a Computer Science graduate from <span class="hl">BRAC University</span>, where I graduated with Distinction. I build machine learning systems that combine <span class="hl">medical images, biosignals and clinical data</span>, with a focus on models that clinicians can understand and trust.</p>
+      <p>As first author of my undergraduate thesis, I designed a multimodal model that grades nonalcoholic fatty liver disease from ultrasound images and routine clinical measurements, with an attention map that explains every prediction. I also wrote a paper, accepted at the <span class="hl">AgIA4BioHealth workshop at IEEE BIBM 2026</span>, showing how much diagnostic information contrastive ECG models hold that text prompts fail to reach.</p>
+      <p>I care most about honest evaluation: leakage free cross validation, controlled ablations, and reporting the reliable number rather than the flattering one. I'm applying to PhD programs in the United States for <span class="hl">Fall 2027</span>.</p>
+    </div>
+
+    <h3>Research interests</h3>
+    <div class="grid2">
+      <div class="tile"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></span><div><h4>Medical image analysis</h4><p>Ultrasound and medical imaging with attention based, interpretable deep models.</p></div></div>
+      <div class="tile"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l2-6 4 12 2-6h8"/></svg></span><div><h4>Biosignals and ECG</h4><p>Learning from ECG signals and pairing them with clinical text.</p></div></div>
+      <div class="tile"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><circle cx="12" cy="17" r="3"/><path d="M9 9l2 5M15 9l-2 5"/></svg></span><div><h4>Multimodal learning</h4><p>Fusing images, signals and clinical records, and contrastive alignment across modalities.</p></div></div>
+      <div class="tile"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><h4>Trustworthy evaluation</h4><p>Leakage free protocols, ablations and explanations that hold up clinically.</p></div></div>
+    </div>
+
+    <h3>Highlights</h3>
+    <div class="stats">
+      <div class="stat"><b>BIBM 2026</b><span>First author, accepted workshop paper</span></div>
+      <div class="stat"><b>92.3%</b><span>Thesis accuracy on a held out split</span></div>
+      <div class="stat"><b>Distinction</b><span>B.Sc. in Computer Science</span></div>
+      <div class="stat"><b>2024 →</b><span>Teaching programming and AI</span></div>
+    </div>
+
+    <h3>News</h3>
+    <ul class="news">
+      <li><time>Oct 2026</time><span>Paper on contrastive ECG–report alignment accepted at the AgIA4BioHealth workshop, IEEE BIBM 2026.</span></li>
+      <li><time>Oct 2026</time><span>Undergraduate thesis on NAFLD grading approved by the BRAC University CSE department.</span></li>
+      <li><time>2026</time><span>Graduated from BRAC University with a B.Sc. in Computer Science, with Distinction.</span></li>
+    </ul>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="page" id="p-research">
+    <h2>Research experience</h2>
+    <ul class="timeline">
+      <li>
+        <h4>Contrastive ECG–Report Alignment on PTB-XL: Measuring the Gap Between Learned Representations and Prompt-Based Diagnosis <span class="badge">First author</span></h4>
+        <span class="when">2026 · Accepted at the AgIA4BioHealth workshop, IEEE BIBM 2026</span>
+        <div class="meta"><b>Tasbir Ahmed</b>, Roza Akter · BRAC University</div>
+        <p>Before training, I audited the PTB-XL report text and found about 59% of the reports in German and about 55% exact duplicates, so I built English pseudo reports from the 71 standard diagnostic statements. I trained a two tower contrastive model with a patient wise split and evaluated the same frozen encoder in two ways, by text prompts and by a linear probe.</p>
+        <p>I defined the difference between the two as a <span class="hl">retrieval gap</span> and proposed a <span class="hl">retrieval efficiency</span> measure, which showed that prompts reach only about a third of the diagnostic information the encoder holds. The gap was largest for conduction disturbance, which I traced to a vocabulary mismatch between prompts and training text. Trained on a single 8 GB GPU.</p>
+        <div class="chips"><span class="chip num">Prompt AUPRC 0.417 (chance 0.259)</span><span class="chip num">Linear probe 0.751</span><span class="chip num">Retrieval efficiency 0.32</span><span class="chip">PyTorch</span><span class="chip">Bio ClinicalBERT</span><span class="chip">Contrastive learning</span></div>
+      </li>
+      <li>
+        <h4>Undergraduate thesis: Multimodal Grading of Nonalcoholic Fatty Liver Disease from Ultrasound and Clinical Data <span class="badge">First author</span></h4>
+        <span class="when">2026 · BRAC University · Defended and approved, October 2026</span>
+        <div class="meta">Supervisors: <b>Dr. Md. Golam Rabiul Alam</b>, <b>Rafeed Rahman</b>, <b>Shoaib Ahmed Dipu</b></div>
+        <p>A model that grades NAFLD as normal, steatosis or advanced from B mode ultrasound and 11 clinical measurements, on a public dataset of 84 patients. Each image is enhanced with bilateral filtering and CLAHE, encoded by an attention gated encoder that produces a spatial attention map with every prediction, and fused with a clinical MLP. I designed the thesis end to end: the pipeline, the methodology and the code.</p>
+        <p>Accuracy rose from 46.2% for an image only ResNet50 to 69.2% with clinical fusion and 92.3% with the attention gated encoder, ahead of every literature baseline reimplemented on the same data. Under leakage free stratified fivefold cross validation, which I report as the reliable estimate, the model reached 71.5% ± 11.8%. A controlled ablation showed the fused model beat either modality alone.</p>
+        <div class="chips"><span class="chip num">92.3% held out accuracy</span><span class="chip num">5 fold CV 71.5% · macro F1 0.721</span><span class="chip num">Ablation F1 0.665 vs 0.627 vs 0.223</span><span class="chip">Attention gate</span><span class="chip">Late fusion</span><span class="chip">PyTorch</span></div>
+      </li>
+      <li>
+        <h4>Undergraduate Research Member, <a href="https://www.facebook.com/bioserc/">BIOSE Research Center</a></h4>
+        <span class="when">2025 – Present</span>
+        <p>Member of the undergraduate research team at the Biomedical Science and Engineering Research Center. I contribute to ongoing projects through data collection, analysis and interdisciplinary research discussions.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="page" id="p-projects">
+    <h2>Projects</h2>
+    <div class="filters" role="tablist">
+      <button class="on" data-f="all">All</button>
+      <button data-f="ml">Machine learning</button>
+      <button data-f="web">Full stack</button>
+      <button data-f="sys">Graphics and systems</button>
+    </div>
+    <div class="pgrid">
+      <article class="proj" data-c="ml">
+        <div class="top"><h4>Unsupervised Music Clustering with VAEs</h4><span class="cat">ML</span></div>
+        <span class="when">Jan 2026 · Neural Networks (CSE425)</span>
+        <p>Basic, convolutional, beta and conditional VAEs for clustering 1,910 tracks using audio, Whisper transcribed lyrics and genre. The beta VAE gave the best clustering quality, with a silhouette score of 0.186 against 0.089 for PCA.</p>
+        <div class="chips"><span class="chip">PyTorch</span><span class="chip">VAE</span><span class="chip">Whisper</span></div>
+        <div class="links"><a href="https://github.com/tas0931/Music_Clustering_CSE425">GitHub →</a></div>
+      </article>
+      <article class="proj" data-c="ml">
+        <div class="top"><h4>Pet Image Segmentation</h4><span class="cat">ML</span></div>
+        <span class="when">Jun 2026 · Computer vision</span>
+        <p>U-Net and Attention U-Net architectures for pixel level semantic segmentation of pet images, using the same attention gate mechanism as my thesis model.</p>
+        <div class="chips"><span class="chip">U-Net</span><span class="chip">Attention U-Net</span><span class="chip">OpenCV</span></div>
+        <div class="links"><a href="https://github.com/tas0931/Pet-Image-Segmentation">GitHub →</a></div>
+      </article>
+      <article class="proj" data-c="ml">
+        <div class="top"><h4>Predicting Academic Outcomes</h4><span class="cat">ML</span></div>
+        <span class="when">Jan 2026 · Educational data mining</span>
+        <p>Classical machine learning models that predict whether students graduate, drop out or stay enrolled, with a full pipeline from data preparation to evaluation.</p>
+        <div class="chips"><span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span class="chip">NumPy</span></div>
+        <div class="links"><a href="https://github.com/tas0931/Predicting-Academic-Outcomes-Using-Machine-Learning-Models-">GitHub →</a></div>
+      </article>
+      <article class="proj" data-c="web">
+        <div class="top"><h4>Blood Donation Hub</h4><span class="cat">Full stack</span></div>
+        <span class="when">Aug 2025 – Jan 2026</span>
+        <p>A web app that connects blood donors with recipients, with registration, blood type search and donation history.</p>
+        <div class="chips"><span class="chip">MongoDB</span><span class="chip">Express</span><span class="chip">React</span><span class="chip">Node.js</span></div>
+        <div class="links"><a href="https://blood-donation-hub.onrender.com/">Live demo →</a><a href="https://github.com/tas0931/Blood-Donation-Hub">GitHub →</a></div>
+      </article>
+      <article class="proj" data-c="web">
+        <div class="top"><h4>Near Me Adventures</h4><span class="cat">Full stack</span></div>
+        <span class="when">Dec 2025 – Jan 2026</span>
+        <p>A personalized travel recommendation platform with user profiles and saved trips.</p>
+        <div class="chips"><span class="chip">MongoDB</span><span class="chip">Express</span><span class="chip">React</span><span class="chip">Node.js</span></div>
+        <div class="links"><a href="https://near-me-adventures.onrender.com/">Live demo →</a><a href="https://github.com/tas0931/Near-Me-Adventures">GitHub →</a></div>
+      </article>
+      <article class="proj" data-c="sys">
+        <div class="top"><h4>Vault Runner</h4><span class="cat">Graphics</span></div>
+        <span class="when">2026 · Computer graphics</span>
+        <p>A 3D stealth heist game in PyOpenGL and GLUT, with a four state guard AI using vision cone detection, security cameras and laser traps.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">PyOpenGL</span><span class="chip">GLUT</span></div>
+        <div class="links"><a href="https://github.com/tas0931/Vault_Runner">GitHub →</a></div>
+      </article>
+      <article class="proj" data-c="sys">
+        <div class="top"><h4>Compiler Design with Flex and Bison</h4><span class="cat">Systems</span></div>
+        <span class="when">Compiler construction</span>
+        <p>Lexer, parser, scoped symbol table, abstract syntax tree and three address code generation for a subset of C.</p>
+        <div class="chips"><span class="chip">C</span><span class="chip">Flex</span><span class="chip">Bison</span></div>
+        <div class="links"><a href="https://github.com/tas0931/Compiler-Design-CSE420-">GitHub →</a></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="page" id="p-experience">
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li>
+        <h4>Programming Instructor, <a href="https://dreamersacademy.com.bd/">Dreamers Academy</a></h4>
+        <span class="when">2024 – Present · Part time</span>
+        <p>Teach Python and JavaScript to young learners through project based lessons, and introduce foundational artificial intelligence, machine learning and prompt engineering through applied projects.</p>
+      </li>
+      <li>
+        <h4>Client Engagement Associate, <a href="https://www.facebook.com/mcdreamerusa">McDreamer USA</a></h4>
+        <span class="when">2025 · Remote</span>
+        <p>Handled client inquiries and strengthened brand presence and customer relationships online.</p>
+      </li>
+      <li>
+        <h4>Volunteer, IEEE BRAC University Student Branch</h4>
+        <span class="when">April 2025</span>
+        <p>Supported the Spring 2025 membership campaign on behalf of the IEEE Robotics and Automation Society BRACU chapter, and received a Certificate of Appreciation.</p>
+      </li>
+      <li>
+        <h4>Media and IT Secretary, <a href="https://www.facebook.com/bnmpc.science.club">BNMPC Science Club</a></h4>
+        <span class="when">2021 – 2022</span>
+        <p>Analysed campaign data for media planning and built a content strategy around the club's core themes.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="page" id="p-education">
+    <h2>Education and honors</h2>
+    <ul class="timeline">
+      <li>
+        <h4><a href="https://www.bracu.ac.bd/">BRAC University</a>, Dhaka</h4>
+        <span class="when">2022 – 2026 · B.Sc. in Computer Science</span>
+        <p>Graduated with Distinction (CGPA 3.50 out of 4.00). Coursework includes neural networks, computer networks, compiler construction and computer graphics.</p>
+      </li>
+      <li>
+        <h4><a href="https://www.noormohammadcollege.ac.bd/">Birshreshtha Noor Mohammad Public College</a>, Dhaka</h4>
+        <span class="when">2021 · Higher Secondary Certificate</span>
+        <p>GPA 5.00 out of 5.00.</p>
+      </li>
+    </ul>
+
+    <h3>Honors</h3>
+    <ul class="news">
+      <li><time>2026</time><span>First author paper accepted at the AgIA4BioHealth workshop, IEEE BIBM 2026.</span></li>
+      <li><time>2026</time><span>B.Sc. in Computer Science with Distinction, BRAC University.</span></li>
+      <li><time>2025</time><span>Certificate of Appreciation, IEEE BRAC University Student Branch.</span></li>
+    </ul>
+
+    <h3>Skills</h3>
+    <div class="skills">
+      <div><b>Machine learning</b><div class="chips" style="margin:0"><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span><span class="chip">OpenCV</span><span class="chip">Pandas</span><span class="chip">NumPy</span></div></div>
+      <div><b>Specializations</b><div class="chips" style="margin:0"><span class="chip">Medical image analysis</span><span class="chip">Multimodal learning</span><span class="chip">Contrastive learning</span><span class="chip">Segmentation</span><span class="chip">VAEs</span><span class="chip">Attention</span></div></div>
+      <div><b>Languages</b><div class="chips" style="margin:0"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">Java</span><span class="chip">C</span></div></div>
+      <div><b>Web</b><div class="chips" style="margin:0"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">MongoDB</span><span class="chip">Django</span></div></div>
+      <div><b>English</b><div class="chips" style="margin:0"><span class="chip">IELTS 7.0</span></div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page" id="p-contact">
+    <h2>Contact</h2>
+    <p>I'm applying to PhD programs for Fall 2027 and I'm always glad to hear from researchers working on medical imaging, biosignals or multimodal learning. The best way to reach me is by email.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:tasbirtahim@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>tasbirtahim@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/tasbir-ahmed/"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg>LinkedIn</a>
+      <a class="btn" href="https://github.com/tas0931"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Tasbir Ahmed · Dhaka, Bangladesh</footer>
+</div>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('nav button');
+  var pages = document.querySelectorAll('.page');
+  function show(id, push){
+    if (!document.getElementById('p-' + id)) id = 'about';
+    pages.forEach(function(p){ p.classList.toggle('on', p.id === 'p-' + id); });
+    buttons.forEach(function(b){ b.classList.toggle('on', b.dataset.page === id); });
+    if (push) history.replaceState(null, '', '#' + id);
+    window.scrollTo({top: 0});
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.page, true); }); });
+  show((location.hash || '#about').slice(1), false);
+  window.addEventListener('hashchange', function(){ show(location.hash.slice(1), false); });
+
+  var fb = document.querySelectorAll('.filters button');
+  fb.forEach(function(b){ b.addEventListener('click', function(){
+    fb.forEach(function(x){ x.classList.toggle('on', x === b); });
+    document.querySelectorAll('.proj').forEach(function(c){ c.hidden = !(b.dataset.f === 'all' || c.dataset.c === b.dataset.f); });
+  }); });
+
+  var side = document.getElementById('side'), t = document.getElementById('toggle');
+  t.addEventListener('click', function(){ var o = side.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Hide contacts' : 'Show contacts'; });
+})();
+</script>
+</body>
+</html>
